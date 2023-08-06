@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>891544358413-snohuhlqr59nt7qes2cidln1ss0ddjer.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.891544358413-snohuhlqr59nt7qes2cidln1ss0ddjer</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAU8XUADPPnRydhCcz0b7Xm4rOf6kA6ElE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>891544358413</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Adrian.examenDigipro</string>
+	<key>PROJECT_ID</key>
+	<string>examendigipro-7b559</string>
+	<key>STORAGE_BUCKET</key>
+	<string>examendigipro-7b559.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:891544358413:ios:abd889f50a13c98d370f44</string>
+</dict>
+</plist>
