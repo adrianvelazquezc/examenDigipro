@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='Enumeration'/>
+        <page name='Structure'/>
+        <page name='Class'/>
+        <page name='Extension'/>
+        <page name='Protocol_and_Inheritance'/>
+        <page name='let'/>
+        <page name='var'/>
+    </pages>
+</playground>

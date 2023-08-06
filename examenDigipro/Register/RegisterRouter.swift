@@ -9,7 +9,6 @@ import UIKit
 
 class RegisterRouter{
     var navigation: UINavigationController?
-    
 }
 
 extension RegisterRouter: RegisterRouterProtocol{

@@ -8,9 +8,9 @@
 import Foundation
 
 class UsersPresenter {
-    weak var interactor: UsersInteractorProtocol?
-    weak var view: UsersViewProtocol?
-    weak var router: UsersRouterProtocol?
+    var interactor: UsersInteractorProtocol?
+    var view: UsersViewProtocol?
+    var router: UsersRouterProtocol?
 }
 
 extension UsersPresenter: UsersPresenterProtocol {

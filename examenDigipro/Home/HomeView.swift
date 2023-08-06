@@ -21,7 +21,7 @@ class HomeView: UIViewController {
         let secondVC = UsersMain.createModule(navigation: self.navigationController ?? UINavigationController())
         
         if let storeImage = UIImage(named: "users") {
-            firstVC.tabBarItem = UITabBarItem(title: "Usuarios", image: storeImage, tag: 0)
+            firstVC.tabBarItem = UITabBarItem(title: "Agregar usuario", image: storeImage, tag: 0)
         }
         if let profileImage = UIImage(named: "form") {
             secondVC.tabBarItem = UITabBarItem(title: "Nuevo Registro", image: profileImage, tag: 1)

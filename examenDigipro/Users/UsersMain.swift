@@ -5,7 +5,6 @@
 //  Created by Mac on 03/08/23.
 //
 
-import Foundation
 import UIKit
 
 open class UsersMain{
@@ -20,10 +19,11 @@ open class UsersMain{
             
             presenter.view = view
             presenter.interactor = interactor
-            
-            interactor.presenter = presenter
+            presenter.router = router
             
             router.navigation = navigation
+            
+            interactor.presenter = presenter
             return view
         }
         return UIViewController()

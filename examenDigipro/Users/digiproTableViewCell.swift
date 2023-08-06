@@ -11,11 +11,13 @@ class digiproTableViewCell: UITableViewCell {
     
     static let identifier = "digiproTableViewCell"
     
-    public var titleLabel: UILabel = {
+    public var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -34,17 +36,17 @@ class digiproTableViewCell: UITableViewCell {
     }
     
     fileprivate func setupUIElements() {
-        self.addSubview(titleLabel)
+        self.addSubview(nameLabel)
         self.backgroundColor = .white
     }
     
     fileprivate func setupConstraints() {
         NSLayoutConstraint.activate([
-            self.titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
-            self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
-            self.titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
-            self.titleLabel.heightAnchor.constraint(equalToConstant: 50),
+            self.nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            self.nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
+            self.nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
+            self.nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
+            self.nameLabel.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
 }

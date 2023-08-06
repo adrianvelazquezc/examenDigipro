@@ -28,7 +28,7 @@ class DigiproInstructionsViewUI: UIView {
     private lazy var instructiosLabel1: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.attributedText = getDecorativeTitleText(text: "1. Completa todos los campos del formulario y presiona el boton Crear", font: .systemFont(ofSize: 16, weight: .medium))
+        label.attributedText = getDecorativeTitleText(text: "Completa todos los campos del formulario y presiona el boton Crear.", font: .systemFont(ofSize: 16, weight: .medium))
         label.numberOfLines = 2
         label.minimumScaleFactor = 0.7
         label.adjustsFontSizeToFitWidth = true
@@ -49,7 +49,7 @@ class DigiproInstructionsViewUI: UIView {
     private lazy var instructiosLabel2: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.attributedText = getDecorativeTitleText(text: "2. En caso de éxito aparecera el campo en color verde", font: .systemFont(ofSize: 16, weight: .regular))
+        label.attributedText = getDecorativeTitleText(text: "Si esta bien cambiara a verde.", font: .systemFont(ofSize: 16, weight: .regular))
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isUserInteractionEnabled = false
         label.numberOfLines = 0
@@ -70,7 +70,7 @@ class DigiproInstructionsViewUI: UIView {
     private lazy var instructiosLabel3: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.attributedText = getDecorativeTitleText(text: "3. En caso de error aparecera el campo en color rojo", font: .systemFont(ofSize: 16, weight: .regular))
+        label.attributedText = getDecorativeTitleText(text: "Si falta completarlo cambiara a rojo.", font: .systemFont(ofSize: 16, weight: .regular))
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isUserInteractionEnabled = false
         label.numberOfLines = 0

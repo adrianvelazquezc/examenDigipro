@@ -107,7 +107,9 @@ extension UsersViewUI: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "digiproTableViewCell", for: indexPath) as? digiproTableViewCell {
-            cell.titleLabel.text = elementList[indexPath.row].name
+            if let name = elementList[indexPath.row].name, let secondName = elementList[indexPath.row].secondName, let thirdName = elementList[indexPath.row].thirdName {
+                cell.nameLabel.text = "\(name) \(secondName) \(thirdName)"
+            }
             return cell
         }
         return UITableViewCell()

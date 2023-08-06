@@ -129,9 +129,6 @@ class RegisterViewUI: UIView{
             
             let gestoTap = UITapGestureRecognizer(target: self, action: #selector(dissmisKeyboard(_:)))
             self.addGestureRecognizer(gestoTap)
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 
             setUI()
             setConstraints()
@@ -274,25 +271,8 @@ class RegisterViewUI: UIView{
         }
     }
     
-    @objc func keyboardWillShow(_ notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
-            containerScrollView.contentInset = contentInsets
-            containerScrollView.scrollIndicatorInsets = contentInsets
-        }
-    }
-    
-    @objc func keyboardWillHide(_ notification: Notification) {
-        containerScrollView.contentInset = .zero
-        containerScrollView.scrollIndicatorInsets = .zero
-    }
-    
     @objc func dissmisKeyboard(_ sender: UITapGestureRecognizer){
         self.endEditing(true)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
     
     @objc func previousButtonTapped() {
@@ -320,7 +300,6 @@ class RegisterViewUI: UIView{
             phoneTextField.resignFirstResponder()
         }
     }
-    
     
 }
 extension RegisterViewUI: UITextFieldDelegate {

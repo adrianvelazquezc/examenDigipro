@@ -8,9 +8,9 @@
 import Foundation
 
 class RegisterPresenter {
-    weak var interactor: RegisterInteractorProtocol?
+    var interactor: RegisterInteractorProtocol?
     weak var view: RegisterViewProtocol?
-    weak var router: RegisterRouterProtocol?
+    var router: RegisterRouterProtocol?
 }
 
 extension RegisterPresenter: RegisterPresenterProtocol {
