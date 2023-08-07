@@ -81,7 +81,10 @@ class UsersViewUI: UIView{
         if filter.isEmpty {
             self.elementList = self.originalElementList
         } else {
-            self.elementList = self.originalElementList.filter({ $0.name?.localizedCaseInsensitiveContains(filter) ?? false })
+            self.elementList = self.originalElementList.filter({ user in
+                let fullName = "\(user.name ?? "") \(user.secondName ?? "") \(user.thirdName ?? "")"
+                return fullName.localizedCaseInsensitiveContains(filter)
+            })
         }
         self.tableView.reloadData()
     }
@@ -113,6 +116,9 @@ extension UsersViewUI: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         return UITableViewCell()
+    }
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.dissmisKeyboard()
     }
     
     

@@ -129,7 +129,10 @@ class RegisterViewUI: UIView{
             
             let gestoTap = UITapGestureRecognizer(target: self, action: #selector(dissmisKeyboard(_:)))
             self.addGestureRecognizer(gestoTap)
-
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+            
             setUI()
             setConstraints()
         }
@@ -226,6 +229,10 @@ class RegisterViewUI: UIView{
         ])
     }
     
+    @objc func dissmisKeyboard(_ sender: UITapGestureRecognizer){
+        self.endEditing(true)
+    }
+    
     @objc private func actionButtonTapped(_ sender: UIButton) {
         setErrorState(for: nameTextField)
         setErrorState(for: secondNameTextField)
@@ -243,11 +250,15 @@ class RegisterViewUI: UIView{
            let phone = phoneTextField.text  {
             
             if !name.isEmpty && !secondName.isEmpty && !thirdName.isEmpty && !email.isEmpty && !phone.isEmpty {
-                delegate?.notifyCreateUser(name: name,
-                                           secondName: secondName,
-                                           thirdName: thirdName,
-                                           email: email,
-                                           phone: phone)
+                if phone.count != 10 {
+                    self.delegate?.notifyShowAlert(tittle: "Hubo un error", message: "Por favor introduzca un numero de 10 digitos")
+                }else {
+                    delegate?.notifyCreateUser(name: name,
+                                               secondName: secondName,
+                                               thirdName: thirdName,
+                                               email: email,
+                                               phone: phone)
+                }
             } else {
                 self.delegate?.notifyShowAlert(tittle: "Hubo un error", message: "Por favor rellena todos los campos")
             }
@@ -271,8 +282,21 @@ class RegisterViewUI: UIView{
         }
     }
     
-    @objc func dissmisKeyboard(_ sender: UITapGestureRecognizer){
-        self.endEditing(true)
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+            containerScrollView.contentInset = contentInsets
+            containerScrollView.scrollIndicatorInsets = contentInsets
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        containerScrollView.contentInset = .zero
+        containerScrollView.scrollIndicatorInsets = .zero
     }
     
     @objc func previousButtonTapped() {
@@ -309,7 +333,7 @@ extension RegisterViewUI: UITextFieldDelegate {
             if string == "@" && (textField.text?.contains("@") ?? false) {
                 return false
             }
-            let allowedCharacters = CharacterSet(charactersIn: "@.")
+            let allowedCharacters = CharacterSet(charactersIn: "@.! # $ % & ' * + - / = ? ^ _ ` { | } ~")
             let characterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: characterSet) || CharacterSet.alphanumerics.isSuperset(of: characterSet)
         }else  if textField.tag == 2 {
