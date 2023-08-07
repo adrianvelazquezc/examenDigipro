@@ -8,7 +8,7 @@
 import Foundation
 
 class HomePresenter {
-    weak var router: HomeRouterProtocol?
+    var router: HomeRouterProtocol?
 }
 
 extension HomePresenter: HomePresenterProtocol {
