@@ -329,13 +329,12 @@ class RegisterViewUI: UIView{
 extension RegisterViewUI: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField.tag == 1 {
-            
-            if string == "@" && (textField.text?.contains("@") ?? false) {
+            let newEmail = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
+            if newEmail.isEmail() {
+                return true
+            } else {
                 return false
             }
-            let allowedCharacters = CharacterSet(charactersIn: "@.! # $ % & ' * + - / = ? ^ _ ` { | } ~")
-            let characterSet = CharacterSet(charactersIn: string)
-            return allowedCharacters.isSuperset(of: characterSet) || CharacterSet.alphanumerics.isSuperset(of: characterSet)
         }else  if textField.tag == 2 {
             let allowedCharacters = CharacterSet(charactersIn: "0123456789")
             let characterSet = CharacterSet(charactersIn: string)
